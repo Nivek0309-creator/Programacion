@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El cuidado del agua</title>
+  <style>
+    :root {
+      --claro:  #0e2a43;
+      --medio: #00B4D8;
+      --oscuro: #244792;
+      --texto: #FFFFFF;
+      --fondo: #B7D7FF;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+      color: var(--texto);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--oscuro);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      background-color: var(--claro);
+      border-left: 5px solid var(--medio);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .img {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        gap: 1rem;
+    }
+
+    .bloque {
+        text-align: center;
+    }
+
+    .bloque button {
+        margin-top: 0.5rem;
+        background-color: #74b9ff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .bloque button:hover {
+        background-color: #2d98da;
+    }
+
+
+    button {
+      background-color: var(--medio);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: var(--oscuro);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--claro);
+      color: var(--texto);
+    }
+
+    .animable {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animable.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <h1>EL CUIDADO DEL AGUA</h1>
+  </header>
+
+  <main>
+    <section class="animable">
+      <h2 style="text-align: center;">¿Que es lo que queremos lograr?</h2>
+      <p style="text-align: justify;">Reducir el consumo del agua en nuestras acividades diarias ya que el problema de varias comunidades es el alto consumo de agua, lo que genera que en ciertas partes de una comunidad el agua tarda hasta 2 semanas en llegar,
+        lo que queremos lograr es hacer conciencia en las personas para que reduzcan su consumo de agua diario utilizando formas de ahorro.</p>
+        <p>Algunas tareas en las que mas se utiliza el agua son por ejemplo: Lavar, Ducharse, Regar plantas, Lavar trastes, Lavar trastes entre otras muchas actividades diarias que realizamos, en las siguientes secciones les mostraremos como cuidar el agua, entre otras cosas, el ahorro del agua es muy importante para la vida del ser humano ya que sin el agua no podriamos seguir viviendo.</p>
+    </section>
+    <section class="animable">
+        <h2>CUIDADO DEL AGUA</h2>
+        <img src="gota.jfif" alt="Cuidado del agua" width="800" height="500"
+        style="text-align: justify; margin-right: 200px;">
+        <img src="llave.jfif" alt="Cuidado del agua" width="750" height="500"
+        style="text-align: justify;">
+
+
+    </section>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {  /*la linea espera hasta que todo el html cargue y despues se ejecuta*/
+    const elementos=document.querySelectorAll(".animable"); /*agarra todos los que tienen clase .animable y los guarda en la variable elementos*/
+
+    const observer=new IntersectionObserver((entradas) => { /*hace un "observador" que checa todos los elementos entren en el área visible del navegador (viewport)*/
+      entradas.forEach((entrada) => { /*recorre cada elemento observado*/
+        if (entrada.isIntersecting) { /*checa si el elementos es visible en la pantalla*/
+          entrada.target.classList.add("visible"); /*si es visible le agrega la clase .visible*/
+        }
+      });
+    }, {
+      threshold: 0.2 /* significa que el 20% del elemento debe estar visible para que se active la animación.*/
+    });
+
+    elementos.forEach((el) => observer.observe(el)); /*le dice al observador que verifique cada elemento .animable*/
+  });
+</script>
+</main>
+</body>
+</html>
